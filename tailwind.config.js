@@ -4,30 +4,29 @@ export default {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
-  darkMode: 'class',
   theme: {
     extend: {
       colors: {
         rio: {
           green: {
-            light: '#34d399',
-            DEFAULT: '#10b981',
-            dark: '#059669',
-            glow: 'rgba(16, 185, 129, 0.25)',
+            DEFAULT: '#16A34A',
+            light: '#22C55E',
+            dark: '#15803D',
+            soft: '#F0FDF4',
           },
-          blue: {
-            light: '#1e3a8a',
-            DEFAULT: '#0f2744',
-            dark: '#0a192f',
-            deep: '#060d17',
+          navy: {
+            DEFAULT: '#003B73',
+            deep: '#002855',
+            dark: '#001D3D',
+            light: '#0A4E8C',
+            soft: '#F0F4F8',
           },
           orange: {
-            light: '#fb923c',
-            DEFAULT: '#f97316',
-            dark: '#ea580c',
-            glow: 'rgba(249, 115, 22, 0.25)',
+            DEFAULT: '#F37021',
+            light: '#FB923C',
+            dark: '#EA580C',
+            soft: '#FFF7ED',
           },
-          gold: '#eab308',
         }
       },
       fontFamily: {
@@ -35,18 +34,17 @@ export default {
         tajawal: ['Tajawal', 'sans-serif'],
       },
       backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'hero-pattern': 'radial-gradient(circle at 50% 20%, rgba(16, 185, 129, 0.15), transparent 70%), radial-gradient(circle at 80% 80%, rgba(249, 115, 22, 0.1), transparent 60%)',
+        'brand-tri': 'linear-gradient(135deg, #16A34A 0%, #003B73 50%, #F37021 100%)',
+        'brand-navy-green': 'linear-gradient(135deg, #003B73 0%, #16A34A 100%)',
+        'brand-navy-orange': 'linear-gradient(135deg, #003B73 0%, #F37021 100%)',
+        'brand-green-orange': 'linear-gradient(135deg, #16A34A 0%, #F37021 100%)',
       },
-      animation: {
-        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-        'float': 'float 3s ease-in-out infinite',
-      },
-      keyframes: {
-        float: {
-          '0%, 100%': { transform: 'translateY(0)' },
-          '50%': { transform: 'translateY(-6px)' },
-        }
+      boxShadow: {
+        'clean': '0 2px 10px -2px rgba(0, 59, 115, 0.05), 0 8px 30px -4px rgba(0, 59, 115, 0.07)',
+        'clean-hover': '0 10px 40px -8px rgba(0, 59, 115, 0.12), 0 20px 40px -12px rgba(22, 163, 74, 0.1)',
+        'btn-navy': '0 8px 24px -4px rgba(0, 59, 115, 0.35)',
+        'btn-green': '0 8px 24px -4px rgba(22, 163, 74, 0.35)',
+        'btn-orange': '0 8px 24px -4px rgba(243, 112, 33, 0.35)',
       }
     },
   },

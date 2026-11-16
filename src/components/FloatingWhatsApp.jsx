@@ -13,7 +13,7 @@ export default function FloatingWhatsApp() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const whatsappNumber = "201000000000"; // Can be easily configured
+  const whatsappNumber = "201000000000";
   const prefilledMessage = encodeURIComponent(
     "أهلاً نادي ريو، أود الاستفسار عن عرض العضوية الأسرية وحجز الزيارة المجانية."
   );
@@ -31,12 +31,12 @@ export default function FloatingWhatsApp() {
       {/* Floating WhatsApp Action Button */}
       <aside aria-label="WhatsApp and quick actions" className="fixed bottom-6 left-6 z-40 flex flex-col items-start gap-2">
         {showTooltip && (
-          <div className="relative bg-[#060e18] border border-emerald-500/30 text-white text-xs px-3.5 py-2 rounded-2xl shadow-2xl flex items-center gap-2 animate-bounce">
-            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
-            <span>تواصل معنا مباشرة عبر واتساب</span>
+          <div className="relative bg-white border border-slate-200 text-slate-800 text-xs font-bold px-3.5 py-2 rounded-2xl shadow-lg flex items-center gap-2">
+            <span className="w-2 h-2 rounded-full bg-[#16A34A] animate-ping"></span>
+            <span>تواصل معنا عبر واتساب</span>
             <button
               onClick={() => setShowTooltip(false)}
-              className="text-slate-400 hover:text-white p-0.5"
+              className="text-slate-400 hover:text-slate-600 p-0.5 cursor-pointer"
             >
               <X className="w-3.5 h-3.5" />
             </button>
@@ -47,7 +47,7 @@ export default function FloatingWhatsApp() {
           href={whatsappUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="relative group flex items-center justify-center w-14 h-14 rounded-full bg-gradient-to-tr from-emerald-600 to-green-500 text-white shadow-xl shadow-emerald-500/40 hover:scale-110 active:scale-95 transition-all duration-300"
+          className="relative group flex items-center justify-center w-14 h-14 rounded-full bg-gradient-to-tr from-[#16A34A] to-[#22C55E] text-white shadow-lg shadow-[#16A34A]/30 hover:scale-110 active:scale-95 transition-all duration-300"
           aria-label="Chat on WhatsApp"
         >
           <MessageCircle className="w-7 h-7" />
@@ -58,17 +58,17 @@ export default function FloatingWhatsApp() {
         </a>
       </aside>
 
-      {/* Sticky Mobile Bottom Bar (Optimized for WhatsApp traffic) */}
-      <div className="fixed bottom-0 inset-x-0 z-30 sm:hidden bg-[#060e18]/95 backdrop-blur-md border-t border-white/10 p-3 flex items-center justify-between gap-3 shadow-2xl">
+      {/* Sticky Mobile Bottom Bar (Light & Clean) */}
+      <div className="fixed bottom-0 inset-x-0 z-30 sm:hidden bg-white/95 backdrop-blur-md border-t border-slate-200 p-3 flex items-center justify-between gap-3 shadow-lg">
         <div className="text-right flex-1">
-          <div className="text-xs font-bold text-emerald-400">عرض تقسيط حتى 60 شهر</div>
-          <div className="text-[11px] text-slate-300">عضوية أسرية مدى الحياة</div>
+          <div className="text-xs font-black text-[#003B73]">عرض تقسيط حتى 60 شهر</div>
+          <div className="text-[11px] text-slate-500 font-medium">عضوية أسرية مدى الحياة</div>
         </div>
         <button
           onClick={scrollToRegister}
-          className="px-5 py-2.5 rounded-full bg-gradient-to-r from-emerald-500 to-emerald-600 text-white text-xs font-black shadow-lg shadow-emerald-500/25 flex items-center gap-1.5"
+          className="px-5 py-2.5 rounded-full bg-gradient-to-r from-[#003B73] via-[#0A4E8C] to-[#16A34A] text-white text-xs font-black shadow-md flex items-center gap-1.5"
         >
-          <CalendarCheck className="w-3.5 h-3.5" />
+          <CalendarCheck className="w-3.5 h-3.5 text-emerald-200" />
           <span>احجز زيارتك المجانية</span>
         </button>
       </div>

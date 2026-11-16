@@ -4,60 +4,51 @@
 
 @layer base {
   body {
-    background-color: #060e18;
-    color: #f1f5f9;
+    background-color: #FAFCFF;
+    color: #1E293B;
     font-family: 'Cairo', 'Tajawal', -apple-system, BlinkMacSystemFont, sans-serif;
   }
 }
 
-/* Custom modern luxury styling inspired by Grin Golf */
-.glass-panel {
-  background: rgba(13, 27, 42, 0.7);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+/* Minimalist Clean Light Styling */
+.card-clean {
+  background: #FFFFFF;
+  border: 1px solid rgba(226, 232, 240, 0.85);
+  box-shadow: 0 1px 3px 0 rgba(0, 59, 115, 0.03), 0 6px 20px -4px rgba(0, 59, 115, 0.05);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.glass-card {
-  background: linear-gradient(135deg, rgba(16, 37, 66, 0.6) 0%, rgba(10, 22, 38, 0.75) 100%);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+.card-clean:hover {
+  border-color: rgba(0, 59, 115, 0.2);
+  box-shadow: 0 12px 35px -6px rgba(0, 59, 115, 0.1), 0 4px 12px -2px rgba(22, 163, 74, 0.08);
+  transform: translateY(-3px);
 }
 
-.glass-card:hover {
-  border-color: rgba(16, 185, 129, 0.35);
-  box-shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.5), 0 0 25px -5px rgba(16, 185, 129, 0.15);
-  transform: translateY(-4px);
+/* Minimalist brand stripe bar (inspired by the Rio Club 3-color shield) */
+.brand-stripe {
+  background: linear-gradient(90deg, #16A34A 0%, #16A34A 33.3%, #003B73 33.3%, #003B73 66.6%, #F37021 66.6%, #F37021 100%);
 }
 
-.glow-pill {
-  position: relative;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(8px);
+.brand-stripe-v {
+  background: linear-gradient(180deg, #16A34A 0%, #16A34A 33.3%, #003B73 33.3%, #003B73 66.6%, #F37021 66.6%, #F37021 100%);
 }
 
-.glow-emerald {
-  box-shadow: 0 0 30px -5px rgba(16, 185, 129, 0.35);
+/* Soft light gradients */
+.bg-soft-radial {
+  background: radial-gradient(circle at 50% 10%, rgba(240, 253, 244, 0.9) 0%, rgba(240, 244, 248, 0.6) 50%, rgba(255, 247, 237, 0.5) 100%);
 }
 
-.glow-orange {
-  box-shadow: 0 0 30px -5px rgba(249, 115, 22, 0.35);
-}
-
-/* Custom scrollbar */
+/* Custom scrollbar for light theme */
 ::-webkit-scrollbar {
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #060e18;
+  background: #F8FAFC;
 }
 ::-webkit-scrollbar-thumb {
-  background: #1e293b;
+  background: #CBD5E1;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #10b981;
+  background: #003B73;
 }

@@ -9,8 +9,7 @@ import {
   MapPin, 
   MessageCircle, 
   ShieldCheck, 
-  Clock, 
-  Calendar 
+  Clock 
 } from 'lucide-react';
 
 export default function RegistrationForm() {
@@ -76,7 +75,6 @@ export default function RegistrationForm() {
     e.preventDefault();
     setIsLoading(true);
 
-    // Save lead to localStorage for offline persistence
     try {
       const existingLeads = JSON.parse(localStorage.getItem('rio_leads') || '[]');
       const newLead = {
@@ -92,10 +90,9 @@ export default function RegistrationForm() {
     setTimeout(() => {
       setIsLoading(false);
       setIsSubmitted(true);
-    }, 700);
+    }, 600);
   };
 
-  // WhatsApp pre-filled link
   const createWhatsAppLink = () => {
     const message = encodeURIComponent(
       `أهلاً نادي ريو، سجلت لطلب الزيارة المجانية وعرض العضوية:\n` +
@@ -105,60 +102,58 @@ export default function RegistrationForm() {
       `📍 منطقة السكن: ${formData.residentialArea}\n` +
       `⚽ النشاط المفضل: ${formData.sportPreference}`
     );
-    // Egyptian WhatsApp format
     return `https://wa.me/201000000000?text=${message}`;
   };
 
   return (
-    <section id="register" className="relative py-24 bg-[#070e17] overflow-hidden">
+    <section id="register" className="relative py-24 bg-white overflow-hidden">
       
-      {/* Background Ambience */}
-      <div className="absolute top-1/3 right-1/4 w-[500px] h-[500px] bg-emerald-500/10 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-10 left-1/4 w-[450px] h-[450px] bg-orange-500/10 rounded-full blur-[120px] pointer-events-none" />
-
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-14">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-orange-500/30 bg-orange-500/10 text-orange-400 text-xs font-bold uppercase tracking-wider mb-4">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FFF7ED] border border-[#F37021]/30 text-[#F37021] text-xs font-bold uppercase tracking-wider mb-4">
             <Sparkles className="w-4 h-4" />
             <span>عرض العضوية والزيارة المجانية</span>
           </div>
 
-          <h2 className="text-3xl sm:text-5xl font-black text-white tracking-tight mb-4">
+          <h2 className="text-3xl sm:text-5xl font-black text-[#001D3D] tracking-tight mb-4">
             سجل بياناتك واستلم دعوتك لزيارة النادي
           </h2>
 
-          <p className="text-slate-300 text-base sm:text-lg leading-relaxed">
-            املأ النموذج في دقيقة واحدة، واستفد من <strong className="text-emerald-400 font-bold">عرض التقسيط المباشر حتى 60 شهر</strong> للعضوية الأسرية الدائمة مدى الحياة.
+          <p className="text-slate-600 text-base sm:text-lg leading-relaxed">
+            املأ النموذج في دقيقة واحدة، واستفد من <strong className="text-[#003B73] font-bold">عرض التقسيط المباشر حتى 60 شهر</strong> للعضوية الأسرية الدائمة مدى الحياة.
           </p>
         </div>
 
-        {/* Form Container */}
-        <div className="glass-card rounded-3xl p-6 sm:p-10 border border-white/15 shadow-2xl relative">
+        {/* Minimalist Form Card */}
+        <div className="bg-white rounded-3xl p-6 sm:p-10 border border-slate-200 shadow-clean relative overflow-hidden">
           
+          {/* Top Tri-Color Brand Stripe */}
+          <div className="absolute top-0 right-0 left-0 h-1.5 brand-stripe" />
+
           {isSubmitted ? (
             /* Success State */
-            <div className="text-center py-12 px-4 space-y-6 animate-fade-in">
-              <div className="w-20 h-20 rounded-full bg-emerald-500/20 border-2 border-emerald-500/40 text-emerald-400 flex items-center justify-center mx-auto shadow-xl shadow-emerald-500/20">
+            <div className="text-center py-12 px-4 space-y-6">
+              <div className="w-20 h-20 rounded-full bg-[#F0FDF4] border-2 border-[#16A34A]/30 text-[#16A34A] flex items-center justify-center mx-auto shadow-sm">
                 <CheckCircle2 className="w-10 h-10" />
               </div>
 
               <div className="space-y-2">
-                <h3 className="text-2xl sm:text-3xl font-black text-white">
+                <h3 className="text-2xl sm:text-3xl font-black text-[#001D3D]">
                   تم استلام بياناتك بنجاح!
                 </h3>
-                <p className="text-slate-300 text-base max-w-lg mx-auto">
-                  أهلاً بك أستاذ <strong className="text-emerald-400">{formData.name}</strong>، تم تسجيل طلبك لحجز الزيارة المجانية وعرض تقسيط الـ 60 شهر.
+                <p className="text-slate-600 text-base max-w-lg mx-auto">
+                  أهلاً بك أستاذ <strong className="text-[#003B73]">{formData.name}</strong>، تم تسجيل طلبك لحجز الزيارة المجانية وعرض تقسيط الـ 60 شهر.
                 </p>
               </div>
 
-              <div className="p-4 rounded-2xl bg-white/5 border border-white/10 max-w-md mx-auto text-sm text-slate-300 space-y-2">
-                <div className="flex items-center justify-center gap-2 text-emerald-400 font-bold">
+              <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200 max-w-md mx-auto text-sm text-slate-700 space-y-2">
+                <div className="flex items-center justify-center gap-2 text-[#16A34A] font-bold">
                   <Clock className="w-4 h-4" />
                   <span>وهنتواصل معاك هاتفياً أو عبر واتساب خلال دقائق</span>
                 </div>
-                <p className="text-xs text-slate-400">
+                <p className="text-xs text-slate-500">
                   لتأكيد موعد الزيارة الأنسب لك ولعائلتك وتجهيز تصريح الدخول الخاص بكم.
                 </p>
               </div>
@@ -169,7 +164,7 @@ export default function RegistrationForm() {
                   href={createWhatsAppLink()}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-full bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black text-sm transition-all shadow-lg shadow-emerald-500/30 cursor-pointer"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-full bg-[#16A34A] hover:bg-[#15803D] text-white font-extrabold text-sm transition-all shadow-md shadow-[#16A34A]/25 cursor-pointer"
                 >
                   <MessageCircle className="w-5 h-5" />
                   <span>تواصل فوري عبر الواتساب لتأكيد الموعد الآن</span>
@@ -187,7 +182,7 @@ export default function RegistrationForm() {
                       notes: ''
                     });
                   }}
-                  className="w-full sm:w-auto px-6 py-3.5 rounded-full bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white border border-white/10 text-sm font-semibold transition-all cursor-pointer"
+                  className="w-full sm:w-auto px-6 py-3.5 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-200 text-sm font-bold transition-all cursor-pointer"
                 >
                   تسجيل طلب آخر
                 </button>
@@ -201,8 +196,8 @@ export default function RegistrationForm() {
                 
                 {/* 1. Name (الاسم) */}
                 <div className="space-y-2 text-right">
-                  <label htmlFor="name" className="block text-sm font-bold text-slate-200">
-                    الاسم بالكامل <span className="text-red-400">*</span>
+                  <label htmlFor="name" className="block text-sm font-bold text-slate-700">
+                    الاسم بالكامل <span className="text-[#F37021]">*</span>
                   </label>
                   <div className="relative">
                     <input
@@ -213,7 +208,7 @@ export default function RegistrationForm() {
                       value={formData.name}
                       onChange={handleChange}
                       placeholder="اكتب اسمك ثلاثي أو رباعي"
-                      className="w-full px-4 py-3.5 pl-11 rounded-2xl bg-[#060e18]/80 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 transition-all text-sm"
+                      className="w-full px-4 py-3.5 pl-11 rounded-2xl bg-slate-50 border border-slate-200 text-slate-800 placeholder-slate-400 focus:outline-none focus:bg-white focus:border-[#003B73] focus:ring-2 focus:ring-[#003B73]/15 transition-all text-sm font-medium"
                     />
                     <User className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
                   </div>
@@ -221,8 +216,8 @@ export default function RegistrationForm() {
 
                 {/* Phone / WhatsApp (رقم الموبايل / واتساب) */}
                 <div className="space-y-2 text-right">
-                  <label htmlFor="phone" className="block text-sm font-bold text-slate-200">
-                    رقم الهاتف / الواتساب <span className="text-red-400">*</span>
+                  <label htmlFor="phone" className="block text-sm font-bold text-slate-700">
+                    رقم الهاتف / الواتساب <span className="text-[#F37021]">*</span>
                   </label>
                   <div className="relative">
                     <input
@@ -234,7 +229,7 @@ export default function RegistrationForm() {
                       value={formData.phone}
                       onChange={handleChange}
                       placeholder="010xxxxxxxx"
-                      className="w-full px-4 py-3.5 pl-11 rounded-2xl bg-[#060e18]/80 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 transition-all text-sm text-right font-mono"
+                      className="w-full px-4 py-3.5 pl-11 rounded-2xl bg-slate-50 border border-slate-200 text-slate-800 placeholder-slate-400 focus:outline-none focus:bg-white focus:border-[#003B73] focus:ring-2 focus:ring-[#003B73]/15 transition-all text-sm text-right font-mono"
                     />
                     <Phone className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
                   </div>
@@ -242,8 +237,8 @@ export default function RegistrationForm() {
 
                 {/* 2. Occupation (طبيعة العمل) */}
                 <div className="space-y-2 text-right">
-                  <label htmlFor="occupation" className="block text-sm font-bold text-slate-200">
-                    طبيعة العمل (الوظيفة أو مجال العمل) <span className="text-red-400">*</span>
+                  <label htmlFor="occupation" className="block text-sm font-bold text-slate-700">
+                    طبيعة العمل (الوظيفة أو مجال العمل) <span className="text-[#F37021]">*</span>
                   </label>
                   <div className="relative">
                     <input
@@ -254,7 +249,7 @@ export default function RegistrationForm() {
                       value={formData.occupation}
                       onChange={handleChange}
                       placeholder="مثال: مهندس، طبيب، صاحب عمل، موظف..."
-                      className="w-full px-4 py-3.5 pl-11 rounded-2xl bg-[#060e18]/80 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 transition-all text-sm"
+                      className="w-full px-4 py-3.5 pl-11 rounded-2xl bg-slate-50 border border-slate-200 text-slate-800 placeholder-slate-400 focus:outline-none focus:bg-white focus:border-[#003B73] focus:ring-2 focus:ring-[#003B73]/15 transition-all text-sm font-medium"
                     />
                     <Briefcase className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
                   </div>
@@ -262,8 +257,8 @@ export default function RegistrationForm() {
 
                 {/* 3. Residential Area in Alexandria (منطقة السكن بالاسكندرية) */}
                 <div className="space-y-2 text-right">
-                  <label htmlFor="residentialArea" className="block text-sm font-bold text-slate-200">
-                    منطقة السكن بالإسكندرية <span className="text-red-400">*</span>
+                  <label htmlFor="residentialArea" className="block text-sm font-bold text-slate-700">
+                    منطقة السكن بالإسكندرية <span className="text-[#F37021]">*</span>
                   </label>
                   <div className="relative">
                     <select
@@ -272,11 +267,11 @@ export default function RegistrationForm() {
                       required
                       value={formData.residentialArea}
                       onChange={handleChange}
-                      className="w-full px-4 py-3.5 pl-11 rounded-2xl bg-[#060e18] border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 transition-all text-sm appearance-none cursor-pointer"
+                      className="w-full px-4 py-3.5 pl-11 rounded-2xl bg-slate-50 border border-slate-200 text-slate-800 placeholder-slate-400 focus:outline-none focus:bg-white focus:border-[#003B73] focus:ring-2 focus:ring-[#003B73]/15 transition-all text-sm appearance-none cursor-pointer font-medium"
                     >
-                      <option value="" disabled className="text-slate-500">اختر منطقة سكنك</option>
+                      <option value="" disabled className="text-slate-400">اختر منطقة سكنك</option>
                       {alexandriaAreas.map((area, idx) => (
-                        <option key={idx} value={area} className="bg-slate-900 text-white">
+                        <option key={idx} value={area} className="bg-white text-slate-800">
                           {area}
                         </option>
                       ))}
@@ -289,7 +284,7 @@ export default function RegistrationForm() {
 
               {/* Activity / Sport of Interest */}
               <div className="space-y-2 text-right">
-                <label htmlFor="sportPreference" className="block text-sm font-bold text-slate-200">
+                <label htmlFor="sportPreference" className="block text-sm font-bold text-slate-700">
                   النشاط أو الرياضة المفضلة لك ولأبنائك
                 </label>
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
@@ -300,8 +295,8 @@ export default function RegistrationForm() {
                       onClick={() => setFormData(prev => ({ ...prev, sportPreference: opt }))}
                       className={`p-2.5 rounded-xl text-xs font-semibold border transition-all text-center cursor-pointer ${
                         formData.sportPreference === opt
-                          ? 'bg-emerald-500/20 border-emerald-500 text-emerald-300 font-bold'
-                          : 'bg-white/5 border-white/10 text-slate-300 hover:bg-white/10'
+                          ? 'bg-[#EFF6FF] border-[#003B73] text-[#003B73] font-bold shadow-sm'
+                          : 'bg-slate-50 border-slate-200 text-slate-600 hover:bg-slate-100'
                       }`}
                     >
                       {opt}
@@ -311,18 +306,18 @@ export default function RegistrationForm() {
               </div>
 
               {/* Trust Badges */}
-              <div className="flex flex-wrap items-center justify-between gap-4 py-3 border-y border-white/5 text-xs text-slate-400">
+              <div className="flex flex-wrap items-center justify-between gap-4 py-3 border-y border-slate-100 text-xs text-slate-500 font-medium">
                 <div className="flex items-center gap-1.5">
-                  <ShieldCheck className="w-4 h-4 text-emerald-400" />
+                  <ShieldCheck className="w-4 h-4 text-[#16A34A]" />
                   <span>بياناتك سرية ومحمية تماماً</span>
                 </div>
                 <div className="flex items-center gap-1.5">
-                  <Clock className="w-4 h-4 text-orange-400" />
+                  <Clock className="w-4 h-4 text-[#F37021]" />
                   <span>تأكيد الموعد في أقل من 24 ساعة</span>
                 </div>
                 <div className="flex items-center gap-1.5">
-                  <Sparkles className="w-4 h-4 text-teal-400" />
-                  <span>تقسيط مباشر حتى 60 شهر بدون فوائد بنكية</span>
+                  <Sparkles className="w-4 h-4 text-[#003B73]" />
+                  <span>تقسيط مباشر حتى 60 شهر</span>
                 </div>
               </div>
 
@@ -331,25 +326,25 @@ export default function RegistrationForm() {
                 <button
                   type="submit"
                   disabled={isLoading}
-                  className="w-full sm:w-2/3 mx-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full text-lg font-black text-white bg-gradient-to-r from-emerald-500 via-emerald-600 to-teal-600 hover:from-emerald-400 hover:to-emerald-500 shadow-xl shadow-emerald-600/30 hover:scale-[1.02] active:scale-[0.98] transition-all cursor-pointer disabled:opacity-50"
+                  className="w-full sm:w-2/3 mx-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full text-base sm:text-lg font-black text-white bg-gradient-to-r from-[#003B73] via-[#0A4E8C] to-[#16A34A] hover:opacity-95 shadow-btn-navy hover:shadow-lg hover:scale-[1.01] active:scale-[0.99] transition-all cursor-pointer disabled:opacity-50"
                 >
                   {isLoading ? (
                     <div className="w-6 h-6 border-2 border-white border-t-transparent rounded-full animate-spin" />
                   ) : (
                     <>
-                      <Send className="w-5 h-5 text-emerald-100" />
+                      <Send className="w-5 h-5 text-emerald-200" />
                       <span>سجل الآن</span>
                     </>
                   )}
                 </button>
 
                 {/* Required note: "وهنتواصل معاك" */}
-                <p className="text-sm sm:text-base font-bold text-orange-400 flex items-center justify-center gap-1.5">
+                <p className="text-sm sm:text-base font-bold text-[#F37021] flex items-center justify-center gap-1.5">
                   <span>✨ سجل الآن..</span>
-                  <span className="underline underline-offset-4 decoration-orange-400/60">
+                  <span className="underline underline-offset-4 decoration-[#F37021]/50 font-black">
                     وهنتواصل معاك
                   </span>
-                  <span>فوراً لتأكيد الزيارة وتفاصيل العرض</span>
+                  <span>فوراً لتأكيد موعد زيارتك المجانية وعرض التقسيط</span>
                 </p>
               </div>
 

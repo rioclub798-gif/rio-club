@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Camera, Image as ImageIcon, X, Maximize2, Sparkles, Info } from 'lucide-react';
+import { Camera, Image as ImageIcon, X, Maximize2, Info } from 'lucide-react';
 
 export default function Gallery() {
   const [activeFilter, setActiveFilter] = useState('all');
@@ -19,7 +19,8 @@ export default function Gallery() {
       title: 'مجمع حمامات السباحة الأولمبية والترفيهية',
       category: 'pool',
       categoryLabel: 'حمامات السباحة',
-      desc: 'مساحات مائية واسعة ونظافة دورية بأعلى المعايير الصحية العالمية.'
+      desc: 'مساحات مائية واسعة ونظافة دورية بأعلى المعايير الصحية العالمية.',
+      badgeColor: 'bg-[#EFF6FF] text-[#003B73] border-[#003B73]/20'
     },
     {
       id: 2,
@@ -27,7 +28,8 @@ export default function Gallery() {
       title: 'ملاعب كرة القدم الدولية المضاءة',
       category: 'fields',
       categoryLabel: 'ملاعب كرة القدم',
-      desc: 'نجيل عالي الجودة مع إنارة ليلية وأكاديميات تدريب ناشئين.'
+      desc: 'نجيل عالي الجودة مع إنارة ليلية وأكاديميات تدريب ناشئين.',
+      badgeColor: 'bg-[#F0FDF4] text-[#16A34A] border-[#16A34A]/20'
     },
     {
       id: 3,
@@ -35,7 +37,8 @@ export default function Gallery() {
       title: 'ملاعب التنس الأرضي الاحترافية',
       category: 'courts',
       categoryLabel: 'ملاعب التنس',
-      desc: 'ملاعب مجهزة للتدريبات والمباريات الرسمية والودية.'
+      desc: 'ملاعب مجهزة للتدريبات والمباريات الرسمية والودية.',
+      badgeColor: 'bg-[#EFF6FF] text-[#003B73] border-[#003B73]/20'
     },
     {
       id: 4,
@@ -43,7 +46,8 @@ export default function Gallery() {
       title: 'صالة الجيم واللياقة البدنية المتكاملة',
       category: 'gym',
       categoryLabel: 'الجيم واللياقة',
-      desc: 'أحدث أجهزة القوة والكارديو مع كباتن ومدربين شخصيين معتمدين.'
+      desc: 'أحدث أجهزة القوة والكارديو مع كباتن ومدربين شخصيين معتمدين.',
+      badgeColor: 'bg-[#FFF7ED] text-[#F37021] border-[#F37021]/20'
     },
     {
       id: 5,
@@ -51,7 +55,8 @@ export default function Gallery() {
       title: 'حفلات وفعاليات عائلية مميزة',
       category: 'events',
       categoryLabel: 'حفلات ومناسبات',
-      desc: 'أمسيات راقية وأجواء احتفالية تسعد الكبار والصغار طوال العام.'
+      desc: 'أمسيات راقية وأجواء احتفالية تسعد الكبار والصغار طوال العام.',
+      badgeColor: 'bg-[#FFF7ED] text-[#F37021] border-[#F37021]/20'
     },
     {
       id: 6,
@@ -59,7 +64,8 @@ export default function Gallery() {
       title: 'ملاعب كرة السلة والصالات المغطاة',
       category: 'courts',
       categoryLabel: 'ألعاب الصالات',
-      desc: 'أرضيات مطاطية احترافية تحافظ على سلامة مفاصل اللاعبين.'
+      desc: 'أرضيات مطاطية احترافية تحافظ على سلامة مفاصل اللاعبين.',
+      badgeColor: 'bg-[#F0FDF4] text-[#16A34A] border-[#16A34A]/20'
     }
   ];
 
@@ -68,28 +74,28 @@ export default function Gallery() {
     : galleryItems.filter(item => item.category === activeFilter);
 
   return (
-    <section id="gallery" className="relative py-24 bg-[#060d17] overflow-hidden">
+    <section id="gallery" className="relative py-24 bg-[#F8FAFC] overflow-hidden">
       
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-teal-500/30 bg-teal-500/10 text-teal-400 text-xs font-bold uppercase tracking-wider mb-4">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#F0FDF4] border border-[#16A34A]/20 text-[#16A34A] text-xs font-bold uppercase tracking-wider mb-4">
             <Camera className="w-4 h-4" />
             <span>معرض الصور | جولة في نادي ريو</span>
           </div>
 
-          <h2 className="text-3xl sm:text-5xl font-black text-white tracking-tight mb-4">
+          <h2 className="text-3xl sm:text-5xl font-black text-[#001D3D] tracking-tight mb-4">
             لقطات من قلب نادي ريو الإسكندرية
           </h2>
 
-          <p className="text-slate-300 text-base sm:text-lg leading-relaxed">
+          <p className="text-slate-600 text-base sm:text-lg leading-relaxed">
             استكشف مرافق النادي وملاعبه وحمامات السباحة والأنشطة الاجتماعية من خلال معرض الصور.
           </p>
 
           {/* User Guide Pill */}
-          <div className="mt-4 inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-blue-500/10 border border-blue-500/20 text-blue-300 text-xs">
-            <Info className="w-4 h-4 shrink-0" />
+          <div className="mt-4 inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white border border-slate-200 text-slate-600 text-xs shadow-sm">
+            <Info className="w-4 h-4 text-[#003B73] shrink-0" />
             <span>يمكنك استبدال الصور بالضغط على الألبوم أو تغيير ملفات placeholder1.jpg مباشرة</span>
           </div>
 
@@ -99,8 +105,8 @@ export default function Gallery() {
               onClick={() => setActiveFilter('all')}
               className={`px-4 py-2 rounded-full text-xs sm:text-sm font-bold transition-all cursor-pointer ${
                 activeFilter === 'all'
-                  ? 'bg-emerald-500 text-white shadow-lg shadow-emerald-500/30'
-                  : 'bg-white/5 text-slate-300 hover:bg-white/10 border border-white/10'
+                  ? 'bg-[#003B73] text-white shadow-md'
+                  : 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-200'
               }`}
             >
               جميع الصور ({galleryItems.length})
@@ -109,8 +115,8 @@ export default function Gallery() {
               onClick={() => setActiveFilter('pool')}
               className={`px-4 py-2 rounded-full text-xs sm:text-sm font-bold transition-all cursor-pointer ${
                 activeFilter === 'pool'
-                  ? 'bg-emerald-500 text-white shadow-lg shadow-emerald-500/30'
-                  : 'bg-white/5 text-slate-300 hover:bg-white/10 border border-white/10'
+                  ? 'bg-[#003B73] text-white shadow-md'
+                  : 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-200'
               }`}
             >
               حمامات السباحة
@@ -119,8 +125,8 @@ export default function Gallery() {
               onClick={() => setActiveFilter('fields')}
               className={`px-4 py-2 rounded-full text-xs sm:text-sm font-bold transition-all cursor-pointer ${
                 activeFilter === 'fields'
-                  ? 'bg-emerald-500 text-white shadow-lg shadow-emerald-500/30'
-                  : 'bg-white/5 text-slate-300 hover:bg-white/10 border border-white/10'
+                  ? 'bg-[#003B73] text-white shadow-md'
+                  : 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-200'
               }`}
             >
               ملاعب كرة القدم
@@ -129,8 +135,8 @@ export default function Gallery() {
               onClick={() => setActiveFilter('courts')}
               className={`px-4 py-2 rounded-full text-xs sm:text-sm font-bold transition-all cursor-pointer ${
                 activeFilter === 'courts'
-                  ? 'bg-emerald-500 text-white shadow-lg shadow-emerald-500/30'
-                  : 'bg-white/5 text-slate-300 hover:bg-white/10 border border-white/10'
+                  ? 'bg-[#003B73] text-white shadow-md'
+                  : 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-200'
               }`}
             >
               التنس وملاعب الصالات
@@ -139,8 +145,8 @@ export default function Gallery() {
               onClick={() => setActiveFilter('gym')}
               className={`px-4 py-2 rounded-full text-xs sm:text-sm font-bold transition-all cursor-pointer ${
                 activeFilter === 'gym'
-                  ? 'bg-emerald-500 text-white shadow-lg shadow-emerald-500/30'
-                  : 'bg-white/5 text-slate-300 hover:bg-white/10 border border-white/10'
+                  ? 'bg-[#003B73] text-white shadow-md'
+                  : 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-200'
               }`}
             >
               الجيم واللياقة
@@ -149,8 +155,8 @@ export default function Gallery() {
               onClick={() => setActiveFilter('events')}
               className={`px-4 py-2 rounded-full text-xs sm:text-sm font-bold transition-all cursor-pointer ${
                 activeFilter === 'events'
-                  ? 'bg-emerald-500 text-white shadow-lg shadow-emerald-500/30'
-                  : 'bg-white/5 text-slate-300 hover:bg-white/10 border border-white/10'
+                  ? 'bg-[#003B73] text-white shadow-md'
+                  : 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-200'
               }`}
             >
               الفعاليات والحفلات
@@ -164,41 +170,41 @@ export default function Gallery() {
             <div
               key={item.id}
               onClick={() => setSelectedImage(item)}
-              className="group relative h-80 rounded-3xl overflow-hidden border border-white/10 bg-slate-900 cursor-pointer shadow-xl transition-all duration-300 hover:border-emerald-500/50 hover:-translate-y-1"
+              className="card-clean group relative h-80 rounded-3xl overflow-hidden bg-white cursor-pointer shadow-sm hover:shadow-xl transition-all duration-300"
             >
               {/* Labeled placeholder image tag for easy replacement */}
               {/* <img src="placeholder1.jpg" alt="صورة للنادي"> */}
               <img
                 src={item.src}
                 alt={item.title}
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 loading="lazy"
               />
 
-              {/* Gradient Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-[#060e18] via-[#060e18]/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity" />
+              {/* Subtle Gradient Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-85 group-hover:opacity-95 transition-opacity" />
 
               {/* Zoom Button Icon on Hover */}
-              <div className="absolute top-4 left-4 w-10 h-10 rounded-full bg-black/50 backdrop-blur-md border border-white/20 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity">
-                <Maximize2 className="w-5 h-5" />
+              <div className="absolute top-4 left-4 w-10 h-10 rounded-full bg-white/80 backdrop-blur-md text-slate-800 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity shadow-sm">
+                <Maximize2 className="w-5 h-5 text-[#003B73]" />
               </div>
 
               {/* Category Badge */}
               <div className="absolute top-4 right-4">
-                <span className="px-3 py-1 rounded-full text-xs font-bold bg-[#060e18]/80 backdrop-blur-md text-emerald-400 border border-emerald-500/30">
+                <span className={`px-3 py-1 rounded-full text-xs font-bold border backdrop-blur-md bg-white/95 ${item.badgeColor}`}>
                   {item.categoryLabel}
                 </span>
               </div>
 
               {/* Caption Content */}
-              <div className="absolute bottom-0 inset-x-0 p-6 text-right">
-                <div className="text-[11px] font-mono text-emerald-400 mb-1">
+              <div className="absolute bottom-0 inset-x-0 p-6 text-right text-white">
+                <div className="text-[11px] font-mono text-emerald-300 mb-1">
                   ملف: {item.src}
                 </div>
-                <h3 className="text-lg font-bold text-white group-hover:text-emerald-300 transition-colors">
+                <h3 className="text-lg font-bold group-hover:text-emerald-300 transition-colors">
                   {item.title}
                 </h3>
-                <p className="text-xs text-slate-300 mt-1 line-clamp-2">
+                <p className="text-xs text-slate-200 mt-1 line-clamp-2">
                   {item.desc}
                 </p>
               </div>
@@ -209,16 +215,16 @@ export default function Gallery() {
         {/* Lightbox Modal */}
         {selectedImage && (
           <div
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-md p-4"
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4"
             onClick={() => setSelectedImage(null)}
           >
             <div
-              className="relative max-w-4xl w-full bg-[#0a1626] rounded-3xl overflow-hidden border border-white/20 shadow-2xl"
+              className="relative max-w-4xl w-full bg-white rounded-3xl overflow-hidden border border-slate-200 shadow-2xl"
               onClick={(e) => e.stopPropagation()}
             >
               <button
                 onClick={() => setSelectedImage(null)}
-                className="absolute top-4 left-4 z-10 w-11 h-11 rounded-full bg-black/60 text-white flex items-center justify-center hover:bg-red-500 transition-colors cursor-pointer"
+                className="absolute top-4 left-4 z-10 w-11 h-11 rounded-full bg-white/80 text-slate-800 flex items-center justify-center hover:bg-red-500 hover:text-white transition-colors cursor-pointer shadow-md"
                 aria-label="Close modal"
               >
                 <X className="w-6 h-6" />
@@ -232,19 +238,19 @@ export default function Gallery() {
                 />
               </div>
 
-              <div className="p-6 text-right bg-[#070e17]">
+              <div className="p-6 text-right bg-white">
                 <div className="flex items-center justify-between mb-2">
-                  <span className="px-3 py-1 rounded-full text-xs font-bold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
+                  <span className={`px-3 py-1 rounded-full text-xs font-bold border ${selectedImage.badgeColor}`}>
                     {selectedImage.categoryLabel}
                   </span>
                   <span className="text-xs font-mono text-slate-400">
                     ملف الصورة: {selectedImage.src}
                   </span>
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-2">
+                <h3 className="text-2xl font-bold text-[#001D3D] mb-2">
                   {selectedImage.title}
                 </h3>
-                <p className="text-slate-300 text-sm">
+                <p className="text-slate-600 text-sm">
                   {selectedImage.desc}
                 </p>
               </div>
